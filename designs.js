@@ -3,8 +3,17 @@
 
 // When size is submitted by the user, call makeGrid()
 
-function makeGrid() {
+$('#sizePicker').submit(function(e) {
+  e.preventDefault();
 
-// Your code goes here!
+  let rowCount = $('#input_height').val();
+  let colCount = $('#input_width').val();
+  let row = '<tr>' + '<td>'.repeat(colCount);
+  let grid = row.repeat(rowCount);
 
-}
+  $('#pixel_canvas').html(grid);
+});
+
+$('#pixel_canvas').click(function(e) {
+  if ($(e.target).is('td')) $(e.target).toggleClass('filled');
+});
