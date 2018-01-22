@@ -9,4 +9,9 @@ $('#sizePicker').submit(function(e) {
   $('#pixel_canvas').html(grid);
 });
 
-$('#pixel_canvas').on('click', 'td', e => $(e.target).toggleClass('filled'));
+$('#pixel_canvas').on('mousedown', 'td', e => {
+  $(e.target).toggleClass('filled');
+  $('td').mouseover(e => $(e.target).toggleClass('filled'));
+});
+
+$('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));
