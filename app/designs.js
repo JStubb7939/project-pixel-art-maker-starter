@@ -26,9 +26,11 @@ $('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));// this ca
 
 function toggleErase() {
   erasing = !erasing;
-  $('#eraser').toggleClass('selected');
+  $('#eraser').toggleClass('btn-secondary');
+  $('#eraser').toggleClass('btn-warning');
 }
 
 function clearGrid() {
   $('td').css('background-color', "");
+  if (erasing) toggleErase();
 }

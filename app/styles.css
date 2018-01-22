@@ -40,7 +40,6 @@ input[type=number] {
     width: 6em;
 }
 
-.selected {
-  background-color: #3077B8;
-  color: #FFF;
+#toolbar {
+  margin-bottom: 15px;
 }
