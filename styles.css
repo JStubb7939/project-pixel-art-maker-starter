@@ -33,8 +33,13 @@ tr {
 
 td {
     width: 20px;
+    cursor: pointer;
 }
 
 input[type=number] {
     width: 6em;
+}
+
+.filled {
+  background-color: #50B2DF;
 }
