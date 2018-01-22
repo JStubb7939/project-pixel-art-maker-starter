@@ -1,10 +1,8 @@
-$('#sizePicker').submit(makeGrid(e));
-
 let color = $('#colorPicker').val() || '#000';
-$('#colorPicker').change(changeColor(e.target.value));
-
 let erasing = false;
 
+$('#sizePicker').submit(makeGrid(e));
+$('#colorPicker').change(changeColor(e.target.value));
 $('#pixel_canvas').on('mousedown', 'td', paintCanvas(e.target));
 $('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));// this cancels the brush when the user lets up on the mouse click
 
