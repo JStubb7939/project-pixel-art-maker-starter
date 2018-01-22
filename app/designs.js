@@ -1,9 +1,9 @@
 let color = $('#colorPicker').val() || '#000';
 let erasing = false;
 
-$('#sizePicker').submit(makeGrid(e));
-$('#colorPicker').change(changeColor(e.target.value));
-$('#pixel_canvas').on('mousedown', 'td', paintCanvas(e.target));
+$('#sizePicker').submit(function(e) { makeGrid(e) });
+$('#colorPicker').change(function(e) {changeColor(e.target.value) });
+$('#pixel_canvas').on('mousedown', 'td', function(e) {paintCanvas(e.target) });
 $('#pixel_canvas').on('mouseup', 'td', stopPainting());// this cancels the brush when the user lets up on the mouse click
 
 function makeGrid(e) {
