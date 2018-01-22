@@ -10,16 +10,16 @@ $('#sizePicker').submit(function(e) {
 });
 
 let color = $('#colorPicker').val() || '#000';
-$('#colorPicker').change(e => changeColor(e.target.value));
+$('#colorPicker').change(() = e => changeColor(e.target.value));
 
 let erasing = false;
 
-$('#pixel_canvas').on('mousedown', 'td', e => paintCanvas(e.target));
-$('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));// this cancels the brush when the user lets up on the mouse click
+$('#pixel_canvas').on('mousedown', 'td',(() =  e => paintCanvas(e.target));
+$('#pixel_canvas').on('mouseup', 'td', (() = e => $('td').off('mouseover'));// this cancels the brush when the user lets up on the mouse click
 
 function paintCanvas(pixel) {
   $(pixel).css('background-color', erasing ? "" : color);
-  $('td').mouseover(e => $(e.target).css('background-color', erasing ? "" : color)); // this enables drag-to-brush while the user is clicking down
+  $('td').mouseover((() = e => $(e.target).css('background-color', erasing ? "" : color)); // this enables drag-to-brush while the user is clicking down
 }
 
 function changeColor(color) {
