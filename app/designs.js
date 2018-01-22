@@ -4,7 +4,7 @@ let erasing = false;
 $('#sizePicker').submit(makeGrid(e));
 $('#colorPicker').change(changeColor(e.target.value));
 $('#pixel_canvas').on('mousedown', 'td', paintCanvas(e.target));
-$('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));// this cancels the brush when the user lets up on the mouse click
+$('#pixel_canvas').on('mouseup', 'td', stopPainting());// this cancels the brush when the user lets up on the mouse click
 
 function makeGrid(e) {
   e.preventDefault();
@@ -17,8 +17,16 @@ function makeGrid(e) {
 }
 
 function paintCanvas(pixel) {
-  $(pixel).css('background-color', erasing ? "" : color);
-  $('td').mouseover(e => $(e.target).css('background-color', erasing ? "" : color)); // this enables drag-to-brush while the user is clicking down
+  colorPixel(pixel)
+  $('td').mouseover(colorPixel(e.target)); // this enables drag-to-brush while the user is clicking down
+}
+
+function colorPixel(pixel) {
+  $(pixel).css('background-color', erasing ? "" : color);
+}
+
+function stopPainting() {
+  $('td').off('mouseover');
 }
 
 function changeColor(color) {
