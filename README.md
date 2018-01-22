@@ -7,7 +7,7 @@
 
 ## Instructions
 
-To get started, open `designs.js` and start building out the app's functionality.
+To get started, open run `npm install` in the project directory and then run the `npm start` command.
 
 For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
