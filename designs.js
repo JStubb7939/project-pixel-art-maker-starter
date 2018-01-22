@@ -11,7 +11,7 @@ $('#sizePicker').submit(function(e) {
 
 $('#pixel_canvas').on('mousedown', 'td', e => {
   $(e.target).toggleClass('filled');
-  $('td').mouseover(e => $(e.target).toggleClass('filled'));
+  $('td').mouseover(e => $(e.target).toggleClass('filled')); // this enables drag-to-brush while the user is clicking down
 });
 
-$('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));
+$('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));// this cancels the brush when the user lets up on the mouse click
