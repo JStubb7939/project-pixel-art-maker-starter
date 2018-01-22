@@ -28,3 +28,7 @@ function toggleErase() {
   erasing = !erasing;
   $('#eraser').toggleClass('selected');
 }
+
+function clearGrid() {
+  $('td').css('background-color', "");
+}
