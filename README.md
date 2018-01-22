@@ -7,7 +7,8 @@
 
 ## Instructions
 
-To get started, open run `npm install` in the project directory and then run the `npm start` command.
+To get started, clone the repo and run `npm install` in the project directory.
+Once the packages are installed, run `npm start` in the project directory and navigate to `localhost:1337` in your web browser.
 
 For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
