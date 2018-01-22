@@ -14,6 +14,4 @@ $('#sizePicker').submit(function(e) {
   $('#pixel_canvas').html(grid);
 });
 
-$('#pixel_canvas').click(function(e) {
-  if ($(e.target).is('td')) $(e.target).toggleClass('filled');
-});
+$('#pixel_canvas').on('click', 'td', e => $(e.target).toggleClass('filled'));
