@@ -22,7 +22,7 @@ $('#pixel_canvas').on('mousedown', 'td', e => {
   $('td').mouseover(e => $(e.target).css('background-color', erasing ? "" : color)); // this enables drag-to-brush while the user is clicking down
 });
 
-$('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));// this cancels the brush when the user lets up on the mouse click
+$('body').on('mouseup', 'td', e => $('td').off('mouseover'));// this cancels the brush when the user lets up on the mouse click
 
 function toggleErase() {
   erasing = !erasing;
