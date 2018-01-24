@@ -29,8 +29,8 @@
   ///        Mobile Event Listeners        ///
 ////////////////////////////////////////////
 
-  $('#pixel_canvas').on('touchstart', e => { self.paintCanvas(e.target) }, false);
-  $('#pixel_canvas').on('touchend', e => { self.stopPainting() }, false);
+  $('#pixel_canvas').on('touchstart', 'td', e => { self.paintCanvas(e.target) }, false);
+  $('#pixel_canvas').on('touchend', 'td', e => { self.stopPainting() }, false);
 
     ////////////////////////////////////////////
   ///         Utility Functions            ///
