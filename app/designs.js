@@ -8,9 +8,10 @@
   self.color = $('#colorPicker').val() || '#000';
   self.erasing = false;
   self.painting = false;
+
   self.makeGrid = makeGrid;
   self.changeColor = changeColor;
-  self.togglePainting = togglePainting;
+  self.togglePaint = togglePaint;
   self.toggleErase = toggleErase;
   self.clearGrid = clearGrid;
 
@@ -20,8 +21,8 @@
 
   $('#sizePicker').submit(e => { e.preventDefault(); self.makeGrid(); });
   $('#colorPicker').change(e => { self.changeColor(e.target.value) });
-  $('#pixel_canvas').on('mousedown', 'td', e => { self.togglePainting(e.target) });
-  $('#pixel_canvas').on('mouseup', 'td', e => { self.togglePainting() });
+  $('#pixel_canvas').on('mousedown', 'td', e => { self.togglePaint(e.target) });
+  $('#pixel_canvas').on('mouseup', 'td', e => { self.togglePaint() });
   $('#eraser').click(e => { self.toggleErase(); });
   $('#clear').click(e => { self.clearGrid(); });
 
@@ -43,11 +44,12 @@
     if (self.erasing) toggleErase();
   }
 
-  function togglePainting(pixel) {
-    if (!pixel) $('td').off('mouseover');
-    else {
+  function togglePaint(pixel) {
+    if (pixel) {
       $(pixel).css('background-color', self.erasing ? "" : self.color);
       $('td').mouseover(e => { $(e.target).css('background-color', self.erasing ? "" : self.color) });
+    } else {
+      $('td').off('mouseover');
     }
   }
 
