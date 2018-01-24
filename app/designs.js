@@ -13,6 +13,7 @@
   self.stopPainting = stopPainting;
   self.toggleErase = toggleErase;
   self.clearGrid = clearGrid;
+  self.gesturedZone = $('#gesturedZone');
 
   ////////////////////////////////////////////
  ///        Event Listeners               ///
@@ -24,6 +25,9 @@
   $('#pixel_canvas').on('mouseup', 'td', e => { self.stopPainting() });
   $('#eraser').click(e => { self.toggleErase(); });
   $('#clear').click(e => { self.clearGrid(); });
+
+  gesuredZone.addEventListener('touchstart', e => { self.paintCanvas(e.target) }, false);
+  gesuredZone.addEventListener('touchend', e => { self.stopPainting() }, false);
 
     ////////////////////////////////////////////
   ///         Utility Functions            ///
