@@ -1,8 +1,22 @@
 (function() {
-  $('#sizePicker').submit(function(e) { e.preventDefault(); makeGrid(); });
+  const self = this;
 
-  let color = $('#colorPicker').val() || '#000';
-  let erasing = false;
+  self.color = $('#colorPicker').val() || '#000';
+  self.erasing = false;
+  self.makeGrid = makeGrid;
+  self.changeColor = changeColor;
+  self.paintCanvas = paintCanvas;
+  self.stopPainting = stopPainting;
+  self.toggleErase = toggleErase;
+  self.clearGrid = clearGrid;
+
+  $('#sizePicker').submit(e => { e.preventDefault(); self.makeGrid(); });
+  $('#colorPicker').change(e => { self.changeColor(e.target.value) });
+  $('#pixel_canvas').on('mousedown', 'td', e => { self.paintCanvas(e.target) });
+  $('#pixel_canvas').on('mouseup', 'td', e => { self.stopPainting() });
+  $('#eraser').click(e => { self.toggleErase(); });
+  $('#clear').click(e => { self.clearGrid(); });
+
 
   function makeGrid() {
     let rowCount = $('#input_height').val();
@@ -13,21 +27,22 @@
     $('#pixel_canvas').html(grid);
   }
 
-  $('#colorPicker').change(e => {
-    color = e.target.value;
-    if (erasing) toggleErase();
-  });
+  function changeColor(newColor) {
+    self.color = newColor;
+    if (self.erasing) toggleErase();
+  }
 
+  function paintCanvas(pixel) {
+    $(pixel).css('background-color', self.erasing ? "" : self.color);
+    $('td').mouseover(e => { $(e.target).css('background-color', self.erasing ? "" : self.color) });
+  }
 
-  $('#pixel_canvas').on('mousedown', 'td', e => {
-    $(e.target).css('background-color', erasing ? "" : color);
-    $('td').mouseover(e => $(e.target).css('background-color', erasing ? "" : color)); // this enables drag-to-brush while the user is clicking down
-  });
-
-  $('#pixel_canvas').on('mouseup', 'td', e => $('td').off('mouseover'));// this cancels the brush when the user lets up on the mouse click
+  function stopPainting() {
+    $('td').off('mouseover')
+  }
 
   function toggleErase() {
-    erasing = !erasing;
+    self.erasing = !self.erasing;
     $('#eraser').toggleClass('btn-secondary');
     $('#eraser').toggleClass('btn-warning');
   }
