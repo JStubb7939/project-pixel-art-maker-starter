@@ -26,13 +26,6 @@
   $('#clear').click(e => { self.clearGrid(); });
 
     ////////////////////////////////////////////
-  ///        Mobile Event Listeners        ///
-////////////////////////////////////////////
-
-  $('#pixel_canvas').on('touchstart', 'td', e => { self.paintCanvas(e.target) }, false);
-  $('#pixel_canvas').on('touchend', 'td', e => { self.stopPainting() }, false);
-
-    ////////////////////////////////////////////
   ///         Utility Functions            ///
 ////////////////////////////////////////////
 
