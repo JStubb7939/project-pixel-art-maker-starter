@@ -1,6 +1,10 @@
 (function() {
   const self = this;
 
+    ////////////////////////////////////////////
+  ///        Controller Variables          ///
+////////////////////////////////////////////
+
   self.color = $('#colorPicker').val() || '#000';
   self.erasing = false;
   self.makeGrid = makeGrid;
@@ -10,6 +14,10 @@
   self.toggleErase = toggleErase;
   self.clearGrid = clearGrid;
 
+  ////////////////////////////////////////////
+ ///        Event Listeners               ///
+////////////////////////////////////////////
+
   $('#sizePicker').submit(e => { e.preventDefault(); self.makeGrid(); });
   $('#colorPicker').change(e => { self.changeColor(e.target.value) });
   $('#pixel_canvas').on('mousedown', 'td', e => { self.paintCanvas(e.target) });
@@ -17,6 +25,9 @@
   $('#eraser').click(e => { self.toggleErase(); });
   $('#clear').click(e => { self.clearGrid(); });
 
+    ////////////////////////////////////////////
+  ///         Utility Functions            ///
+////////////////////////////////////////////
 
   function makeGrid() {
     let rowCount = $('#input_height').val();
