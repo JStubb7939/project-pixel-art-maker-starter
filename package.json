@@ -4,7 +4,8 @@
   "description": "Custom Pixel Art Maker",
   "main": "app/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "webdriver": "webdriver-manager start",
+    "test": "protractor test/conf.js",
     "start": "node app/server.js"
   },
   "repository": {
@@ -15,7 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "protractor": "^5.3.0"
   },
   "bugs": {
     "url": "https://github.com/JStubb7939/project-pixel-art-maker-starter/issues"
