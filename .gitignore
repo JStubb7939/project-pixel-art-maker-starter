@@ -2,6 +2,7 @@
 logs
 *.logs
 *.log
+app-env
 
 # Runtime data
 pids
