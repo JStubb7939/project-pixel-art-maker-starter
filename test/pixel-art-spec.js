@@ -17,12 +17,12 @@ describe('Jordan Stubblefield\'s pixel art maker', function() {
   });
 
   it('should create a grid based on user input', function() {
-    let table = element.all(by.tagName('table'));
+    let tables = element.all(by.tagName('table'));
     let rows = element.all(by.tagName('tr'));
     let cols = element.all(by.css('tr:first-child td'));
     let cells = element.all(by.tagName('td'));
 
-    expect(table.count()).toEqual(1);
+    expect(tables.count()).toEqual(1);
     expect(rows.count()).toEqual(10);
     expect(cols.count()).toEqual(10);
     expect(cells.count()).toEqual(100);
