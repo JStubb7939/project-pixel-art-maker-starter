@@ -33,8 +33,7 @@
   function makeGrid() {
     let rowCount = $('#input_height').val();
     let colCount = $('#input_width').val();
-    let row = '<tr>' + '<td>'.repeat(colCount);
-    let grid = row.repeat(rowCount);
+    let grid = '<tbody>' + ('<tr>' + '<td>'.repeat(colCount)).repeat(rowCount);
 
     $('#pixel_canvas').html(grid);
   }
